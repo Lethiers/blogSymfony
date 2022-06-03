@@ -14,13 +14,16 @@
     {% block header %} 
     <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="">Articles</a>
+    <a class="nav-link active" aria-current="page" href="{{path('app_acceuil')}}">Articles</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="">Categories</a>
+    <a class="nav-link" href="{{path('app_category')}}">Categories</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="">Utilisateur</a>
+    <a class="nav-link" href="{{path('admin')}}">Administrateur</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Contact</a>
   </li>
 </ul>
     

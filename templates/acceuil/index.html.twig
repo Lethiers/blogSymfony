@@ -12,7 +12,7 @@
 
 
 
-<h1 class="text-center">🙈🙉 Voici un magnifique BLOG de mes chats 🙉🙈 </h1>
+<h1 class="text-center">🙈🙉 Voici un magnifique BLOG de chats 🙉🙈 </h1>
 <div class ='d-flex justify-content-around flex-wrap m-2 mt-5'>
 
     {% for data in articles %}
@@ -27,24 +27,40 @@
     <h4 class="card-title text-center">{{data.title}}</h4>
     <small class="text-muted">{{data.createdAt|date("d/m/Y")}}</small>
     {# <p class="card-text">{{data.contenu}}</p> #}
+      <div>
+    
+    <small class="text-muted"> écrit par :{{data.writeBy.name}}</small>
+  </div>
+
+  <div>
+  <small class="text-muted"> ranger dans la catégorie :{% for test in data.category %}{{test.title}}{% endfor %}</small>
+  </div>
   </div>
   <button type="button" class="btn btn-secondary m-5 mb-1 mt-1"><a href="./show/{{data.id}}">Voir plus</a></button>
 </div> 
 
 {% else %}
     
-    <div class="card border-secondary mb-3" style="max-width: 20rem;">
+      <div class="card border-secondary mb-3" style="max-width: 20rem;">
   <div class="card-header">{{data.title}}</div>
 
-  <img  class="fit-picture" height ="150px" src="{{data.image}}" alt="Grapefruit slice atop a pile of other slices">
- 
+    <img  class="fit-picture" height ="150px" src="{{data.image}}" alt="Grapefruit slice atop a pile of other slices">
+
 
   <div class="card-body">
     <h4 class="card-title text-center">{{data.title}}</h4>
     <small class="text-muted">{{data.createdAt|date("d/m/Y")}}</small>
     {# <p class="card-text">{{data.contenu}}</p> #}
+      <div>
+    
+    <small class="text-muted"> écrit par :{{data.writeBy.name}}</small>
   </div>
-  <button type="button" class="btn btn-secondary m-5 mb-1 mt-1"><a href="./show/{{data.id}}">Voir plus</a></button>
+
+  <div>
+  <small class="text-muted"> ranger dans la catégorie :{% for test in data.category %}{{test.title}}{% endfor %}</small>
+  </div>
+  </div>
+  <button type="button" class="btn btn-secondary m-5 mb-1 mt-1"><a href="{{ path('app_show', {'id':data.id})}}">Voir plus</a></button>
 </div> 
 {% endif %}
     {% endfor %}

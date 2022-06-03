@@ -60,6 +60,7 @@ class AppFixtures extends Fixture
             $art->setContenu($faker->text(300));
             $art->setCreatedAt(new \DateTimeImmutable());
             $art->setWriteBy($faker->randomElement($users));
+            $art->addCategory($faker->randomElement($cats));
             // stockage dans le manager
             $manager->persist($art);
             $articles[]=$art;

@@ -13,6 +13,7 @@ class AcceuilController extends AbstractController
     public function index(ArticleRepository $articleRepository): Response
     {
         $articles = $articleRepository->findAll();
+        // dd($articles);
         return $this->render('acceuil/index.html.twig',[
             'articles' => $articles,
         ]);
